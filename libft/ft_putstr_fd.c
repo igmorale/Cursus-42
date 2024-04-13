@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igmorale <igmorale@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 23:51:17 by igmorale          #+#    #+#             */
-/*   Updated: 2024/04/09 23:51:17 by igmorale         ###   ########.fr       */
+/*   Created: 2024/04/13 03:24:51 by igmorale          #+#    #+#             */
+/*   Updated: 2024/04/13 03:24:51 by igmorale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include "libft.h"
 
-int ft_isascii(int c)
+void ft_putstr_fd(char *s, int fd)
 {
-    if (c >= 0 && c <= 127)
-        return (1);
-    return (0);
+    int i;
+
+    if (!s)
+        return;
+    i = 0;
+    while (s[i] != '\0')
+    {
+        ft_putchar_fd(s[i], fd);
+        i++;
+    }
 }

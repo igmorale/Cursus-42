@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char    ft_search(char c, char const *set)
 {
     size_t  i;

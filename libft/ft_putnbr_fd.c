@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igmorale <igmorale@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 12:57:49 by igmorale          #+#    #+#             */
-/*   Updated: 2024/04/10 12:57:49 by igmorale         ###   ########.fr       */
+/*   Created: 2024/04/13 03:32:17 by igmorale          #+#    #+#             */
+/*   Updated: 2024/04/13 03:32:17 by igmorale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memmove(void *dest, const void *src, size_t len)
+void    ft_putnbr_fd(int n, int fd)
 {
-    size_t          i;
-    unsigned char   *s;
-    unsigned char   *d;
-
-    s = (unsigned char *) src;
-    d = (unsigned char *) dest;
-    if (!dest && !src)
-        return (NULL);
-    if (d > s)
+    if (n == -2147483648)
     {
-        while (len-- > 0)
-            d[len] = s[len];
+        ft_putchar_fd('-', fd);
+        ft_putchar_fd('2', fd);
+        n = 147483648;
+    }
+    if (n < 0)
+    {
+        ft_putchar_fd('-', fd);
+        n = -n;
+    }
+    if (n < 10)
+    {
+        ft_putchar_fd(n + '0', fd);
+        return;
     }
     else
-    {
-        i = 0;
-        while (i < len)
-        {
-            d[i] = s[i];
-            i++;
-        }
-    }
-    return (dest);
+        ft_putnbr_fd(n / 10, fd);
+    ft_putchar_fd(n % 10 + '0', fd);
 }
