@@ -59,7 +59,7 @@ void    *ft_bzero(void *s, size_t n)
     p = (unsigned char *) s;
     while (i < n)
     {
-        p[i] = ;    //No lo entiendo
+        p[i] = ;    //I think it should be p[i] = s[i];
         i++;
     }
 }

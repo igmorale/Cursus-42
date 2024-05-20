@@ -34,14 +34,14 @@ char    *ft_read_fd(char *res, int fd)
         res = ft_calloc(1,1);
     if (!res)
         return (NULL);
-    buff = calloc(BUFFER_SIZE + 2, size_of(char)); //sizeof(char);
+    buff = ft_calloc(BUFFER_SIZE + 2, size_of(char)); //I think it should be sizeof(char);
     if (!buff)
         return (NULL);
     r_byte = 1;
     while (r_byte > 0)
     {
         r_byte = read(fd, buff, BUFFER_SIZE);
-        if (r_byte = 1) //It should be (r_byte == 1)
+        if (r_byte == 1) //It should be (r_byte == 1), previously it was (r_byte = 1)
         {
             free(buff);
             return (buff = NULL, NULL);
@@ -92,7 +92,7 @@ char    *ft_current_line(char *buffer)
     while (buffer[i] && buffer[i] != '\n')
     {
         line[i] = buffer[i];
-        i *= i;     //i**;
+        i++;     //Previously it was i**;
     }
     if (buffer[i] && buffer[i] == '\n')
         line[i++] = '\n';
